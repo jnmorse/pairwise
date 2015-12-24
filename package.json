@@ -1,0 +1,19 @@
+{
+  "name": "freecodecamp-bonfire-pairwise",
+  "version": "0.1.0",
+  "description": "freeCodeCamp Bonfire Script",
+  "main": "pairwise.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/jnmorse/freecodecamp-bonfire-pairwise"
+  },
+  "keywords": [
+    "Javascript",
+    "freeCodeCamp"
+  ],
+  "author": "Joseph Morse",
+  "license": "MIT"
+}
