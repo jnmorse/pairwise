@@ -1,4 +1,4 @@
-var pairwise = require('./pairwise.js');
+var pairwise = require('./index.js');
 
 (pairwise([1, 4, 2, 3, 0, 5], 7) === 11) ? console.log('pass') : console.log('fail');
 
