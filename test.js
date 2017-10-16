@@ -1,11 +1,42 @@
-var pairwise = require('./index.js');
+const {
+  assert: {
+    exists,
+    strictEqual
+  }
+} = require('chai')
 
-(pairwise([1, 4, 2, 3, 0, 5], 7) === 11) ? console.log('pass') : console.log('fail');
+describe('pairwise', () => {
+  let pairwise
 
-(pairwise([1, 3, 2, 4], 4) === 1) ? console.log('pass') : console.log('fail');
+  before('Should be importable', () => {
+    pairwise = require('./index.js') // eslint-disable-line global-require
 
-(pairwise([1, 1, 1], 2) === 1) ? console.log('pass') : console.log('fail');
+    exists(pairwise)
+  })
 
-(pairwise([0, 0, 0, 0, 1, 1], 1) === 10) ? console.log('pass') : console.log('fail');
+  it('should be a function', () => {
+    strictEqual(typeof pairwise, 'function')
+  })
 
-(pairwise([], 100) === 0) ? console.log('pass') : console.log('fail');
+  it('should calculate the correct results', () => {
+    strictEqual(
+      pairwise([1, 4, 2, 3, 0, 5], 7),
+      11,
+      'when giving [1, 4, 2, 3, 0, 5], 7'
+    )
+
+    strictEqual(pairwise([1, 3, 2, 4], 4), 1, 'when giving [1, 3, 2, 4], 4')
+
+    strictEqual(pairwise([1, 1, 1], 2), 1, 'when giving [1, 1, 1], 2')
+
+    strictEqual(
+      pairwise([0, 0, 0, 0, 1, 1], 1),
+      10,
+      'when giving [0, 0, 0, 0, 1, 1], 1'
+    )
+
+    strictEqual(pairwise([], 100), 0, 'when giving [], 100')
+
+    strictEqual(pairwise([1, 3], 2), 0, 'when no match possible, get 0')
+  })
+})
