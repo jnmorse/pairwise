@@ -1,8 +1,5 @@
 const {
-  assert: {
-    exists,
-    strictEqual
-  }
+  assert: { exists, strictEqual }
 } = require('chai')
 
 describe('pairwise', () => {
